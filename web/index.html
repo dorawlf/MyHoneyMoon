@@ -6,15 +6,11 @@
 <script type="text/javascript" src="lib/js/modernizr.2.5.3.min.js"></script>
 <link rel="shortcut icon" href="favicon.ico">
 <style>
-    .for_honey_moon{
-        width:410px;
-        height:500px;
-        top:50px;
-        left:15px;
-        position: relative;
-
-    }
+    #for_honey_moon {
+        display: none;
+    }    
 </style>
+
 </head>
 <body>
     <div class="flipbook-viewport">
@@ -47,8 +43,8 @@
             <div style="background-image:url(lib/img/pages/25.jpeg)"></div>
             <div style="background-image:url(lib/img/pages/bg-b.jpeg)"></div>
             <div style="background-image:url(lib/img/pages/bg-b.jpeg)"></div>
-            <div style="background-image:url(lib/img/pages/bg-y.jpeg)" class="for_honey_moon">
-                <iframe class="for_honey_moon" src="ForHoneyMoon.html"></iframe>
+            <div style="background-image:url(lib/img/pages/bg-y.jpeg)" >
+                <iframe id="for_honey_moon" src="" > </iframe>
             </div>
             <div style="background-image:url(lib/img/pages/bg-y.jpeg)"></div>            
             <div style="background-image:url(lib/img/pages/26.jpeg)"></div>
@@ -71,6 +67,19 @@
             // Auto center this flipbook
             autoCenter: true
         });
+        $(".flipbook").bind("turned", function(event, page, view) {
+            
+            if(28==page){           
+                $("#for_honey_moon").css('display','block');
+                $("#for_honey_moon").css('width','410px');
+                $("#for_honey_moon").css('height','500px');
+                $("#for_honey_moon").css('top','50px');
+                $("#for_honey_moon").css('left','15px');
+                $("#for_honey_moon").css('position','relative');
+                $("#for_honey_moon").attr('src','forhoneymoon.html');    
+            }
+        });
+               
     };    
         // Load the HTML4 version if there's not CSS transform
 
